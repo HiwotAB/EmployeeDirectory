@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-6">
+        <h1>Welcome to the movie database</h1>
+
+        <div class="row align-baseline">
+            <h2>Movies</h2>
+            <a th:href="@{/addmovie}" class="align-baseline"> Add movie</a>
+        </div>
+
+        <div class="col-md6 col-offset-2" th:each="aMovie:${movieList}" >
+
+
+            <h3 th:text="${aMovie.title}">Movie title</h3><a th:disabled="${gotactors lt 1}" th:href="@{/addactorstomovie/{id}(id=${aMovie.id})}">Add actors</a>
+            <div th:each="anotherActor:${aMovie.cast}">
+                <p th:text="${anotherActor.name}">
+                <p th:text="${anotherActor.realname}">
+            </div>
+        </div>
+        <h2>Actors</h2>
+        <div th:each="anActor:${actorList}" >
+
+            <p th:text="${anActor.name}"></p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

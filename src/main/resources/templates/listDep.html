@@ -55,7 +55,13 @@
                 <tbody align="left">
                 <tr th:each="dep : ${department}">
                     <td th:text="${dep.depName}" ></td>
-                    <td th:text="${dep.depHName}" ></td>
+                    <!--<td th:text="${dep.depHName}" ></td>-->
+
+                    <span th:each="emp : ${dep.employees}" >
+                       <td th:if="${emp.id}==${dep.depHName}" th:text="${emp.fname} + ' '+${emp.lname}"/>
+                     </span>
+
+
 
                     <td>
                         <a th:href="@{/Depupdate/{id}(id=${dep.id})}">Update</a>

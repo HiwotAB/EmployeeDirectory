@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>Bell Bootstrap 4 Theme</title>
@@ -71,28 +71,6 @@
 </section>
 <!-- /Hero -->
 
-<!-- Header -->
-<header id="header">
-    <div class="container">
-
-        <div id="logo" class="pull-left">
-            <!--<a href="index.html"><img src="img/logo-nav.png" alt="" title="" /></img></a>-->
-            <!-- Uncomment below if you prefer to use a text image -->
-            <!--<h1><a href="#hero">Bell</a></h1>-->
-        </div>
-
-        <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href=addStudent>Add Student Info.</a></li>
-                <li><a href=listStudent>List Student</a></li>
-            </ul>
-        </nav><!-- #nav-menu-container -->
-
-
-    </div>
-</header>
-<!-- #header -->
 
 
 <!-- Required JavaScript Libraries -->
@@ -113,18 +91,6 @@
 <script src="js/custom.js"></script>
 
 <script src="contactform/contactform.js"></script>
-
-
-<!--<div th:each="director:${directors}">-->
-    <!--<h2 th:text="${director.name}"></h2>-->
-    <!--<h6 th:inline="text">Specializing in[[${director.genre}]]</h6>-->
-    <!--<ul>-->
-        <!--<th:block th:each="movie:${director.movies}">-->
-            <!--<li th:inline="text"><b>[[${movie.title}]]</b>relased in [[${movie.year}]]</li>-->
-        <!--</th:block>-->
-    <!--</ul>-->
-<!--</div>-->
-
 
 </body>
 </html>

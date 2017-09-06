@@ -43,7 +43,7 @@
       Author URL: https://bootstrapmade.com
     ======================================================= -->
 </head>
-
+<th:block th:replace="base :: myNavBar"></th:block>
 <body>
 <section class="hero">
     <div class="container text-center">
@@ -56,7 +56,7 @@
 
                             <!-- Form Name -->
                             <legend align="Center">Please Enter Employees Information</legend>
-                            <input type=hidden th:field="*{department.id}" />
+                            <!--<input type=hidden th:field="*{department.id}" />-->
                             <input type=hidden th:field="*{id}" />
 
                             <!-- Text input-->
@@ -97,6 +97,11 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <select name="departments">
+                                    <option th:each="dept:${allDepts}" th:value="${dept.id}" th:text="${dept.depName}"></option>
+                                </select>
+                            </div>
                             <!-- Button -->
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
@@ -111,5 +116,24 @@
     </div>
 </section>
 
+
+<!-- Required JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/superfish/hoverIntent.js"></script>
+<script src="lib/superfish/superfish.min.js"></script>
+<script src="lib/tether/js/tether.min.js"></script>
+<script src="lib/stellar/stellar.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/easing/easing.js"></script>
+<script src="lib/stickyjs/sticky.js"></script>
+<script src="lib/parallax/parallax.js"></script>
+<script src="lib/lockfixed/lockfixed.min.js"></script>
+
+<!-- Template Specisifc Custom Javascript File -->
+<script src="js/custom.js"></script>
+
+<script src="contactform/contactform.js"></script>
 </body>
 </html>

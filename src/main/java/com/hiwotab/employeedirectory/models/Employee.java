@@ -2,6 +2,9 @@ package com.hiwotab.employeedirectory.models;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Employee {
     @Id
@@ -26,6 +29,14 @@ public class Employee {
     @JoinColumn(name="department_id")
 
     private Department department;
+
+    public Employee() {
+        this.setTeamSet(new HashSet<Team>());
+    }
+
+    @ManyToMany()
+    private Set<Team> teamSet;
+
 
     public long getId() {
         return id;
@@ -73,5 +84,17 @@ public class Employee {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public Set<Team> getTeamSet() {
+        return teamSet;
+    }
+
+    public void setTeamSet(Set<Team> teamSet) {
+        this.teamSet = teamSet;
+    }
+    public void addTeam(Team t)
+    {
+        teamSet.add(t);
     }
 }

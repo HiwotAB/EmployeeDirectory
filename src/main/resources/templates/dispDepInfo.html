@@ -37,8 +37,9 @@
     <link href="../../css/style.css" rel="stylesheet">
 </head>
 <body>
+<th:block th:replace="base :: myNavBar"></th:block>
 
-<section class="hero">
+<<section class="hero">
     <div class="container text-center">
 
         <form class="form-horizontal" th:action="@{/addDepartment}" th:object="${newDep}" method="">
@@ -54,7 +55,8 @@
 
                 <div class="col-sm-10">
 
-                    <p th:if="${newDep.depHName}!=null" th:text="${newDep.depHName}" />
+                    <!--<p th:if="${newDep.depHName}!=null" th:text="${newDep.depHName}" />-->
+                    <p th:if="${emp}!=null" th:text="${emp.fname}" />
                 </div>
             </div>
 
@@ -62,8 +64,8 @@
 
             <div class="form-group">
                 <div class="col-md-4">
-                    <a th:if="${newDep.depHName}==null" th:href="@{/addEmployee/{id}(id=${newDep.id})}"><strong>Enter Department Head Information</strong></a>
-                    <a th:if="${newDep.depHName}!=null" th:href="@{/addEmployee/{id}(id=${newDep.id})}"><strong>Enter Employee Information</strong></a>
+                    <a th:if="${newDep.depHName}==0" th:href="@{/addEmployee/{id}(id=${newDep.id})}"><strong>Enter Department Head Information</strong></a>
+                    <a th:if="${newDep.depHName}!=0" th:href="@{/addEmployee/{id}(id=${newDep.id})}"><strong>Enter Employee Information</strong></a>
                 </div>
             </div>
         </form>
@@ -72,31 +74,6 @@
 
 </section>
 <!-- /Hero -->
-
-<!-- Header -->
-<header id="header">
-    <div class="container">
-
-        <div id="logo" class="pull-left">
-            <!--<a href="index.html"><img src="img/logo-nav.png" alt="" title="" /></img></a>-->
-            <!-- Uncomment below if you prefer to use a text image -->
-            <!--<h1><a href="#hero">Bell</a></h1>-->
-        </div>
-
-        <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li><a href=homePage>Home</a></li>
-                <li><a href=addDirector>Add Director Info.</a></li>
-                <li><a href=addMovie>Add Movie Info.</a></li>
-                <li><a href=listDirectors>List Director</a></li>
-                <li><a href=listMovie>List Movies</a></li>
-            </ul>
-        </nav><!-- #nav-menu-container -->
-
-
-    </div>
-</header>
-<!-- #header -->
 
 
 

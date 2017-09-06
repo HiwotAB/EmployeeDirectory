@@ -37,6 +37,7 @@
     <link href="../../css/style.css" rel="stylesheet">
 </head>
 <body>
+<th:block th:replace="base :: myNavBar"></th:block>
 
 <section class="hero">
     <div class="container text-center">
@@ -55,21 +56,15 @@
 
                             <div class="col-sm-10">
                                 <div  th:if="${#fields.hasErrors('depName')}" th:errors="*{depName}" class="well alert alert-danger" role="alert"></div>
+
                                 <input  th:field="*{depName}"  name="depName" placeholder="Enter Department Name" class="form-control"  type="text">
+
+                                <select name="employeeSelect">
+                                    <option th:each="emp:${newDep.employees}" th:value="${emp.id}" th:text="${emp.fname}+' '+${emp.lname}"></option>
+                                </select>
 
                             </div>
                         </div>
-
-                        <!--&lt;!&ndash; Text input&ndash;&gt;-->
-                        <!--<div class="form-group">-->
-
-                            <!--<div class="col-sm-10">-->
-                                <!--<div  th:if="${#fields.hasErrors('depHName')}" th:errors="*{depHName}" class="well alert alert-danger" role="alert"></div>-->
-                                <!--<input  th:field="*{depHName}" name="depHName" placeholder="Enter Department Head Name" class="form-control"  type="text">-->
-
-                            <!--</div>-->
-                        <!--</div>-->
-
                         <!-- Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
@@ -83,34 +78,7 @@
             </div>
         </div>
 </section>
-<!-- Header -->
-<header id="header">
-    <div class="container">
 
-        <div id="logo" class="pull-left">
-            <!--<a href="index.html"><img src="img/logo-nav.png" alt="" title="" /></img></a>-->
-            <!-- Uncomment below if you prefer to use a text image -->
-            <!--<h1><a href="#hero">Bell</a></h1>-->
-        </div>
-
-        <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li><a href=homePage>Home</a></li>
-                <li><a href=addDirector>Add Director Info.</a></li>
-                <li><a href=addMovie>Add Movie Info.</a></li>
-                <li><a href=listDirectors>List Director</a></li>
-                <li><a href=listMovie>List Movies</a></li>
-            </ul>
-        </nav><!-- #nav-menu-container -->
-
-
-    </div>
-</header>
-<!-- #header -->
-
-
-
-<!-- #header -->
 
 
 <!-- Required JavaScript Libraries -->
